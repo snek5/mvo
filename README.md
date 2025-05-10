@@ -47,25 +47,25 @@ Mean-Variance Optimization (MVO) is a mathematical framework for constructing an
 ### Objective Function
 The MVO problem can be formulated as:
 
-\[
+$$
 \max_{\mathbf{w}} \mathbf{w}^T \mathbf{\mu} - \lambda \mathbf{w}^T \Sigma \mathbf{w}
-\]
+$$
 
 Where:
-- \(\mathbf{w}\): Vector of portfolio weights (decision variables).
-- \(\mathbf{\mu}\): Vector of expected returns for each asset.
-- \(\Sigma\): Covariance matrix of asset returns.
-- \(\lambda\): Risk aversion parameter (higher \(\lambda\) implies more conservative portfolios).
+- $\mathbf{w}$: Vector of portfolio weights (decision variables).
+- $\mu$: Vector of expected returns for each asset.
+- $\Sigma$: Covariance matrix of asset returns.
+- $\lambda$: Risk aversion parameter (higher \(\lambda\) implies more conservative portfolios).
 
 ### Constraints
 1. **Budget Constraint**: The sum of portfolio weights must equal 1:
-   \[
+   $$
    \sum_{i=1}^n w_i = 1
-   \]
+   $$
 2. **Non-Negativity Constraint** (if short-selling is not allowed):
-   \[
+   $$
    w_i \geq 0 \quad \forall i
-   \]
+   $$
 
 ### Solution
 The optimization problem is solved using quadratic programming, as the objective function is quadratic and the constraints are linear.
@@ -99,9 +99,9 @@ Monte Carlo simulations are a statistical technique used to model and analyze th
    - If short-selling is allowed, weights are sampled from a normal distribution and normalized to sum to 1.
    - If short-selling is not allowed, weights are sampled from a Dirichlet distribution to ensure non-negativity and sum-to-one constraints.
 2. **Portfolio Return and Volatility**:
-   - For each set of weights \(\mathbf{w}\):
-     - Portfolio return: \(\mathbf{w}^T \mathbf{\mu}\)
-     - Portfolio volatility: \(\sqrt{\mathbf{w}^T \Sigma \mathbf{w}}\)
+   - For each set of weights $\mathbf{w}$:
+     - Portfolio return: $\mathbf{w}^T \mathbf{\mu}$
+     - Portfolio volatility: $\sqrt{\mathbf{w}^T \Sigma \mathbf{w}}$
 3. **Simulation**:
    - Repeat the process for a large number of iterations (e.g., 5000) to generate a distribution of portfolio returns and volatilities.
 
